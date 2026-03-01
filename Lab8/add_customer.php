@@ -20,8 +20,15 @@
     <lable>จังหวัด :</lable>
     <select name="Province">
         <option valur="">- เลื่อกจังหวัด -</option>
+        <option valur="เชียงราย">เชียงราย</option>
         <option valur="เชียงใหม่">เชียงใหม่</option>
+        <option valur="น่าน">น่าน</option>
+        <option valur="พะเยา">พะเยา</option>
+        <option valur="แพร่">แพร่</option>
+        <option valur="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
         <option valur="ลำปาง">ลำปาง</option>
+        <option valur="ลำพูน">ลำพูน</option>
+        <option valur="อุตรดิตถ์">อุตรดิตถ์</option>
     </select><br>
 
     <lable>รหัสไปรษณีย์ :</lable> <input type="text" name="Zipcode" maxlength="5"><br>
