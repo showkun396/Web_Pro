@@ -1,0 +1,95 @@
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+body {
+     width: 800px;
+     margin: 50px auto;
+     padding: 20px;
+     border-radius: 8 px;
+     background-color: rgba(255, 255, 255, 0.9); /* สีขาว ความโปร่งใส 90% */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* เพิ่มเงาให้ฟอร์มลอยขึ้นมา */
+    animation: shake 0.3s ease-in-out;
+}
+
+h1{
+    padding: 0px 200px;
+    background-color: #ff74744f;
+    
+}
+/* ===============================
+   File input
+   =============================== */
+input[type="file"] {
+    margin-top: 10px;
+}
+/* ===============================
+   Buttons
+   =============================== */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* reset */
+input[type="submit"] {
+    background: #db3434;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+/* sumid */
+input[type="reset"] {
+    background: #72e75b;
+    color: #fff;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+/* finish */
+#Finich {
+    background: #2e80cc;
+    color: #fff;
+    padding: 10px 350px;
+    border-radius: 5px;
+}
+
+/* hover effect */
+input[type="submit"]:hover {
+    animation: shake 0.3s ease-in-out;
+}
+
+input[type="reset"]:hover {
+    animation: shake 0.3s ease-in-out;
+}
+
+#Finich:hover {
+    animation: shake 0.3s ease-in-out;
+}
+legend {
+    padding: 0 10px;
+    font-weight: bold;
+    color: #ff7474;
+}
+input{
+    background-color: #ff74744f;
+}
+textarea{
+    background-color: #ff74744f;
+}
+
+/* ใส่แบบเหมาเพื่อความชัวร์ */
+body, label, input, button, select, textarea {
+    font-family: 'Mitr', sans-serif;
+}

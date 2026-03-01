@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <H1>Personal Infomation</H1>
+    <form action="index2.php" method="POST">
+        <fieldset>
+            <legend>Personal</legend>
+            <label for="fname">Name:</label>
+            <input type="text" id="fname" name="fname">
+        
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname"><br>
+            <br>
+            <label for="User">User:</label>
+            <input type="text" id="User" name="User">
+        
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="pwd"><br>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="birth"></label>
+            <input type="date" id="birthday" name="birthday">
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>You favorites</legend>
+            เลือกภาษาที่คุณชื่นชอบ :
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label for="html">Python</label>
+            <input type="radio" id="css" name="fav_language" value="CSS">
+            <label for="css">C#</label>
+            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+            <label for="javascript">Java</label><br>
+        
+            <br>
+            เลือกกีฬาที่คุณชื่นชอบ :
+            <input type="checkbox" id="football" name="football" value="football">
+            <label for="football">ชอบฟุตบอล</label>
+            <input type="checkbox" id="basketball" name="basketball" value="basketball">
+            <label for="basketball">ชอบบาสเกตบอล</label>
+            <input type="checkbox" id="bad" name="bad" value="bad">
+            <label for="bad">แบดมินตัน</label>
+            <input type="checkbox" id="swim" name="swim" value="swim">
+            <label for="swim">ว่ายน้ำ</label><br>
+            <br>
+            คุณอยู่ภาคอะไร :
+            <select name="region" id="region">
+                <option value="North">ภาคเหนือ</option>
+                <option value="Central">ภาคกลาง</option>
+                <option value="Northeast">ภาคตะวันออกเฉียงเหนือ</option>
+                <option value="South">ภาคใต้</option>
+            </select>
+        
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Comment/Review Wed</legend>
+            <textarea id="Comment" placeholder="เขียนคอมเม้นต์ที่นี่..." rows="5" style="width: 100%;"></textarea>
+        </fieldset>
+
+        <br>
+        <b><i>แนบรูปตอนคุณเล่นกีฬาที่ชอบ :</i></b>
+        <input type="file" id="Select" value="Select">
+        <label for="Select"></label> 
+        <input type="reset" value="Submit">
+        <input type="submit" value="Reset"><br>
+        <br>
+
+        <div style="display: flex; justify-content: center; margin-top: 30px;">
+            <input type="button" id="Finich" value="Finish" style="width: 90px;">
+        </div>
+        
+    </form>
+</body>
+</html>
