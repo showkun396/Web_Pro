@@ -1,3 +1,18 @@
+<?php
+session_start();
+// ถ้าไม่มี Session แปลว่าไม่ได้ล็อคอิน ให้ส่งกลับไปหน้า login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+include 'connect.php';
+?>
+<div style="text-align: right;">
+    ชื่อผู้ใช้: <strong><?php echo $_SESSION['full_name']; ?></strong> 
+    | <a href="logout.php" style="color: red;">Log out</a>
+</div>
+<hr>
+
 <?php include 'connect.php'; ?>
 <!DOCTYPE html>
 <html>
