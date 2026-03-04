@@ -1,11 +1,11 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = "1234";
+    $password = "";
     $dbname = "mystore";
 
     //เชื่อมต่อ
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    $conn = @mysqli_connect($servername, $username, $password, $dbname);
 
     mysqli_set_charset($conn, "utf8");
 

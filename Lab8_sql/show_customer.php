@@ -24,7 +24,7 @@
                     echo "<td>" . $row["Customer_Name"] . " " . $row["Customer_Lastname"] . "</td>";
                     echo "<td>" . $row["Province"] . "</td>";
                     echo "<td>" . $row["Telephone"] . "</td>";
-                    echo "<td><a href='edit.php?id=".$row["Customer_id"]."'>✏️</a></td>";
+                    echo "<td><a href='edit_customer.php?id=".$row["Customer_id"]."'>✏️</a></td>";
                     echo "<td><a href='delete.php?id=".$row["Customer_id"]."'>🗑️</a></td>";
                     echo "</tr>";
                 }

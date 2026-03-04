@@ -6,7 +6,6 @@ CREATE TABLE customer (
     Customer_Name VARCHAR(50),
     Customer_Lastname VARCHAR(100),
     Gender VARCHAR(5),
-    Age INT(11),
     Birthdate VARCHAR(10),
     Address VARCHAR(150),
     Province VARCHAR(50),
