@@ -94,6 +94,7 @@ $row = mysqli_fetch_assoc($result);
         } ?>
     </select>
     <br>
+    
     ที่อยู่ : <input type="text" name="Address" style="width: 300px;" value="<?php echo $row['Address']; ?>">
     <br>
 
