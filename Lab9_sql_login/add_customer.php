@@ -1,39 +1,40 @@
-
 <?php
-include 'connect.php';
+$conn = mysqli_connect("localhost", "root", "123", "mystore");
+mysqli_set_charset($conn, "utf8");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if (!$conn) { die("Connection Failed: " . mysqli_connect_error()); }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     // รับค่าจากฟอร์ม
-    // รับค่าให้ครบทุกตัวแปรที่ส่งมาจาก form
-    $name = $_POST['Customer_Name'];
-    $lastname = $_POST['Customer_Lastname'];
-    $gender = $_POST['Gender'];
-    $birthdate = $_POST['Birthdate'];
-    $address = $_POST['Address'];
-    $province = $_POST['Province'];
-    $zipcode = $_POST['Zipcode'];
-    $telephone = $_POST['Telephone'];
-    $description = $_POST['Customer_Description'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+// รับค่าให้ครบทุกตัวแปรที่ส่งมาจาก form
+$name = $_POST['Customer_Name'];
+$lastname = $_POST['Customer_Lastname'];
+$gender = $_POST['Gender'];
+$birthdate = $_POST['Birthdate'];
+$address = $_POST['Address'];
+$province = $_POST['Province'];
+$zipcode = $_POST['Zipcode'];
+$telephone = $_POST['Telephone'];
+$description = $_POST['Customer_Description'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-    // รับค่าอื่นๆ ให้ครบตามฟอร์ม เช่น Gender, Age, Province, username, password...
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    // คำสั่ง SQL สำหรับเพิ่มข้อมูล
-    $sql = "INSERT INTO customer (Customer_Name, Customer_Lastname, Gender, Birthdate, Address, Province, Zipcode, Telephone, Customer_Description, username, password) 
+// รับค่าอื่นๆ ให้ครบตามฟอร์ม เช่น Gender, Age, Province, username, password...
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+// คำสั่ง SQL สำหรับเพิ่มข้อมูล
+$sql = "INSERT INTO customer (Customer_Name, Customer_Lastname, Gender, Birthdate, Address, Province, Zipcode, Telephone, Customer_Description, username, password) 
         VALUES ('$name', '$lastname', '$gender', '$birthdate', '$address', '$province', '$zipcode', '$telephone', '$description', '$username', '$hashed_password')";
 
-    if ($_POST['password'] !== $_POST['confirm_password']) {
-        die("รหัสผ่านไม่ตรงกัน! <a href='javascript:history.back()'>ย้อนกลับ</a>");
-    }   
+if ($_POST['password'] !== $_POST['confirm_password']) {
+    die("รหัสผ่านไม่ตรงกัน! <a href='javascript:history.back()'>ย้อนกลับ</a>");
+}
 
-    if (mysqli_query($conn, $sql)) {
-        echo "บันทึกข้อมูลเรียบร้อยแล้ว!";
-        echo "<br><a href='show_customer.php'>กลับไปดูรายชื่อลูกค้า</a>";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
+if (mysqli_query($conn, $sql)) {
+    echo "บันทึกข้อมูลเรียบร้อยแล้ว!";
+    echo "<br><a href='show_customer.php'>กลับไปดูรายชื่อลูกค้า</a>";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
 }
 
 ?>
@@ -43,6 +44,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <head>
     <meta charset="UTF-8">
     <title>เพิ่มข้อมูลลูกค้า</title>
+
+    <style>
+        /* จัด Layout ทั่วไป */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 { text-align: center; color: #333; }
+
+        /* จัดระเบียบแต่ละฟิลด์ */
+        .form-group { margin-bottom: 15px; }
+        
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+
+        input[type="text"], input[type="password"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* สำคัญมาก เพื่อไม่ให้ padding เกินขอบ */
+        }
+
+        /* ปรับแต่ง fieldset */
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* ปุ่มกด */
+        .btn-group { display: flex; gap: 10px; }
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"] { background-color: #28a745; color: white; }
+        button[type="submit"]:hover { background-color: #218838; }
+        button[type="reset"] { background-color: #dc3545; color: white; }
+        button[type="reset"]:hover { background-color: #c82333; }
+    </style>
+
 </head>
 <body>
     <h2>เพิ่มข้อมูลลูกค้า</h2>
