@@ -5,15 +5,43 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
-include 'connect.php';
+$conn = mysqli_connect("localhost", "root", "123", "mystore");
+mysqli_set_charset($conn, "utf8");
+
+if (!$conn) { die("Connection Failed: " . mysqli_connect_error()); }
 ?>
-<div style="text-align: right;">
+
+<style>
+    body { font-family: 'Sarabun', sans-serif; background-color: #f8f9fa; padding: 20px; }
+    
+    .user-info { text-align: right; margin-bottom: 10px; color: #333; }
+    .user-info a { color: #e74c3c; text-decoration: none; font-weight: bold; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    th { background-color: #3498db; color: white; padding: 12px; text-align: left; }
+    td { padding: 12px; border-bottom: 1px solid #ddd; }
+    
+    tr:hover { background-color: #f1f1f1; }
+    
+    .btn-add { display: inline-block; padding: 10px 15px; background: #2ecc71; color: white; text-decoration: none; border-radius: 5px; margin-bottom: 10px; }
+    .btn-add:hover { background: #27ae60; }
+    
+    .action-icon { font-size: 1.2em; text-decoration: none; }
+</style>
+
+<div style="user-info">
     ชื่อผู้ใช้: <strong><?php echo $_SESSION['full_name']; ?></strong> 
     | <a href="logout.php" style="color: red;">Log out</a>
 </div>
 <hr>
 
-<?php include 'connect.php'; ?>
+<?php 
+    $conn = mysqli_connect("localhost", "root", "", "mystore");
+    mysqli_set_charset($conn, "utf8");
+
+    if (!$conn) { die("Connection Failed: " . mysqli_connect_error()); }
+?>
+
 <!DOCTYPE html>
 <html>
     <boby>
