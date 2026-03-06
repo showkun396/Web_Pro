@@ -1,5 +1,8 @@
 <?php
-include 'connect.php';
+$conn = mysqli_connect("localhost", "root", "123", "mystore");
+mysqli_set_charset($conn, "utf8");
+
+if (!$conn) { die("Connection Failed: " . mysqli_connect_error()); }
 
 // --- ส่วนที่ 1: รับค่าเพื่อบันทึกข้อมูล (เมื่อกดปุ่ม Submit) ---
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -48,6 +51,65 @@ $row = mysqli_fetch_assoc($result);
 ?>
 
 <form action="" method="POST">
+
+    <style>
+        /* จัด Layout ทั่วไป */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 { text-align: center; color: #333; }
+
+        /* จัดระเบียบแต่ละฟิลด์ */
+        .form-group { margin-bottom: 15px; }
+        
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+
+        input[type="text"], input[type="password"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* สำคัญมาก เพื่อไม่ให้ padding เกินขอบ */
+        }
+
+        /* ปรับแต่ง fieldset */
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* ปุ่มกด */
+        .btn-group { display: flex; gap: 10px; }
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"] { background-color: #28a745; color: white; }
+        button[type="submit"]:hover { background-color: #218838; }
+        button[type="reset"] { background-color: #dc3545; color: white; }
+        button[type="reset"]:hover { background-color: #c82333; }
+    </style>
+
     <input type="hidden" name="Customer_id" value="<?php echo $row['Customer_id']; ?>">
 
     ชื่อ: <input type="text" name="Customer_Name" value="<?php echo $row['Customer_Name']; ?>"><br>
@@ -94,7 +156,6 @@ $row = mysqli_fetch_assoc($result);
         } ?>
     </select>
     <br>
-    
     ที่อยู่ : <input type="text" name="Address" style="width: 300px;" value="<?php echo $row['Address']; ?>">
     <br>
 
