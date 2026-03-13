@@ -69,11 +69,13 @@
                 const confirmPass = document.getElementById('confirm_password').value;
 
                 const zip = document.getElementById('Zipcode').value;
-                const phon = document.getElementById('Telephone').value;
+                const phone = document.getElementById('Telephone').value;
 
                 const name = document.getElementById('Customer_Name').value;
                 const lastname = document.getElementById('Customer_Lastname').value;
                 const Address = document.getElementById('Address').value;
+
+                const user = document.getElementById('username').value;
 
             if (name&&lastname&&Address !== "" && !/^\d{5}$/.test(name&&lastname&&Address)) {
                 alert("กรุณาใส่ข้อมูลให้ครบ");
@@ -87,14 +89,14 @@
             }
 
                 // ตรวจสอบรหัสไปรษณีย์ (ต้องเป็นตัวเลข 5 หลัก)
-            if (zi !== "" && !/^\d{5}$/.test(zip)) {
+            if (zip !== "" && !/^\d{5}$/.test(zip)) {
                 alert("รหัสไปรษณีย์ต้องเป็นตัวเลข 5 หลัก");
                 return false;
             }
 
-                // ตรวจสอบรหัสไปรษณีย์ (ต้องเป็นตัวเลข 5 หลัก)
-            if (zi !== "" && !/^\d{5}$/.test(zip)) {
-                alert("รหัสไปรษณีย์ต้องเป็นตัวเลข 5 หลัก");
+                // ตรวจสอบโทรศัพ (ต้องเป็นตัวเลข 10 หลัก)
+            if (phone !== "" && !/^\d{10}$/.test(phone)) {
+                alert("เบอร์โทรศัพท์ต้องเป็นตัวเลข 10 หลัก");
                 return false;
             }
 
